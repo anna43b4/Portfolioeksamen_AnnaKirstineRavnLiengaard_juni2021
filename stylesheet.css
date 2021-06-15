@@ -11,6 +11,10 @@ html {
   scroll-behavior: smooth;
 }
 
+title {
+  color: #fcecdd;
+}
+
 #header {
   background-color: #fcecdd;
   display: inline;
@@ -62,6 +66,10 @@ h2 {
 
   /* gør font-størrelsen responsiv */
   font-size: clamp(1.5rem, 0.6rem + 2vw, 2rem);
+}
+
+.beskrivelse p {
+  max-width: 100ch;
 }
 
 #forside_section_1 {
@@ -159,6 +167,7 @@ li {
   display: block;
   text-align: right;
   background: #fd551f;
+  z-index: 1;
 
   text-decoration: none;
 }
@@ -185,7 +194,6 @@ li {
 
 #desktop_menu a {
   text-decoration: none;
-  position: -webkit-sticky; /* Safari */
   position: sticky;
   font-family: "Arimo", sans-serif;
   color: black;
@@ -330,6 +338,9 @@ li {
   max-width: 40%;
 }
 
+#indhold .web_slut_tekst p {
+  max-width: 80ch;
+}
 /*----------------------- TEMA 03 - UX-SIDEN ----------------------- */
 #indhold {
   display: grid;
@@ -345,7 +356,8 @@ li {
 .cont_8,
 .cont_9,
 .cont_10,
-.cont_11 {
+.cont_11,
+.cont_12 {
   display: grid;
 }
 
@@ -390,6 +402,10 @@ video {
   #desktop_menu {
     display: none;
   }
+
+  .cv_img {
+    max-width: 600px;
+  }
 }
 @media (max-width: 350px) {
   #portfolio_section_2 {
@@ -414,7 +430,7 @@ video {
     bottom: 0;
     left: 0;
     background-color: transparent;
-    max-width: 700px;
+    max-width: 600px;
   }
 
   .cv_container {
@@ -460,7 +476,8 @@ video {
   .cont_8 p,
   .cont_9 p,
   .cont_10 p,
-  .cont_11 p {
+  .cont_11 p,
+  .cont_12 p {
     display: grid;
     grid-column: 1;
     grid-row: 1;
@@ -477,6 +494,7 @@ video {
   .cont_9 img,
   .cont_10 img,
   .cont_11 img,
+  .cont_12 img,
   video {
     display: grid;
     grid-column: 2;
