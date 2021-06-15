@@ -1,0 +1,485 @@
+/*-------------------- GENERELLE CSS-REGLER (+ for forside) --------------------*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #fcecdd;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#header {
+  background-color: #fcecdd;
+  display: inline;
+}
+
+main {
+  display: grid;
+}
+
+footer p {
+  background-color: #fcecdd;
+  font-weight: normal;
+  font-size: clamp(0.8rem, 0.3rem + 1vw, 1rem);
+  max-width: 100ch;
+  color: #fd551f;
+}
+
+p {
+  max-width: 60ch;
+  min-width: 20ch;
+  font-size: clamp(1rem, 0.1rem + 1.3vw, 1.3rem);
+  padding: 1rem;
+  overflow-wrap: break-word;
+  line-height: 1.5rem;
+  text-align: left;
+  font-family: "Arimo", sans-serif;
+  font-weight: lighter;
+}
+
+#main {
+  background-color: #fcecdd;
+  display: grid;
+}
+
+h1 {
+  font-family: "Arimo", sans-serif;
+
+  /* gør font-størrelsen responsiv */
+  font-size: clamp(1rem, 2rem + 6vw, 6rem);
+  font-weight: initial;
+}
+
+h2 {
+  padding-top: 1rem;
+  padding-left: 1rem;
+  line-height: 2rem;
+  font-family: "Arimo", sans-serif;
+  font-weight: normal;
+
+  /* gør font-størrelsen responsiv */
+  font-size: clamp(1.5rem, 0.6rem + 2vw, 2rem);
+}
+
+#forside_section_1 {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: 2fr;
+  gap: 1rem;
+}
+.port_container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-column: 2;
+  grid-row: 1;
+  padding-top: 1.5rem;
+}
+
+.folio_container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-column: 3;
+  grid-row: 2;
+  color: #fd551f;
+}
+
+#forside_section_2 {
+  display: grid;
+}
+
+.forside_img {
+  width: 60%;
+  height: auto;
+  max-width: 250px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5rem;
+}
+
+.baseline_img {
+  width: 100%;
+  height: auto;
+  max-width: 300px;
+  align-items: baseline;
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  background: transparent;
+}
+
+.link_liste {
+  padding-left: 1rem;
+  font-family: "Arimo", sans-serif;
+}
+
+li {
+  font-family: "Arimo", sans-serif;
+  padding-left: 1rem;
+  list-style: none;
+}
+
+/* Mobil menu */
+
+#desktop_menu.open {
+  transform: translateX(0);
+}
+
+#mobile_menu {
+  /* position: absolut gør elementets placerering relativt til den nærmeste parent som ikke har position: static (static er default på alle elementer). Her er den relativ ifht "header", da den er position: sticky.  */
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 50vw;
+  height: 100vh;
+  background: #fd551f;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 10px;
+  gap: 15px;
+
+  transition: transform 0.3s;
+  transform: translateX(-100%);
+}
+
+#mobile_menu.open {
+  transform: translateX(0);
+}
+
+#mobile_menu a {
+  font-family: "arimo", sans-serif;
+  color: black;
+  font-weight: 500;
+  font-size: 1.5rem;
+  display: block;
+  text-align: right;
+  background: #fd551f;
+
+  text-decoration: none;
+}
+#mobile_menu li {
+  list-style-type: none;
+  background: #fd551f;
+}
+
+#mobile_menu a:hover {
+  color: #fcecdd;
+  font-size: 1.6rem;
+}
+
+/* Desktop Menu */
+
+#desktop_menu {
+  text-align: right;
+  margin: 1rem;
+}
+
+#desktop_menu li {
+  display: inline;
+}
+
+#desktop_menu a {
+  text-decoration: none;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  font-family: "Arimo", sans-serif;
+  color: black;
+  font-weight: lighter;
+  margin: 1rem;
+}
+
+#desktop_menu a:hover {
+  color: #fd551f;
+}
+
+/* #burger_knap til mobil-view (Burgermenuen øvrest i højre side) */
+
+#burger_knap {
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  overflow: hidden;
+  position: relative;
+  left: 83%;
+}
+
+.streg {
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  background-color: black;
+  top: calc(50% - 1.5px);
+  transition: transform 0.3s, opacity 0.3s;
+  margin: 2px;
+}
+
+.streg.top {
+  transform: translateY(-10px);
+}
+
+.streg.bottom {
+  transform: translateY(10px);
+}
+
+/* #burger_knap  Når den er åben / .open */
+
+#burger_knap.open .streg.top {
+  transform: translateY(0) rotate(45deg);
+}
+
+#burger_knap.open .streg.center {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+#burger_knap.open .streg.bottom {
+  transform: translateY(0) rotate(-45deg);
+}
+
+/*-------------------- CV-SITE -----------------------*/
+
+.cv_img {
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  align-content: center;
+}
+
+.text_container {
+  border-color: solid black;
+}
+
+/*-------------------- PORTFOLIO-SITE --------------------*/
+
+#forside_section_1 .folio_container {
+  padding-bottom: 2rem;
+}
+
+/* hover-effekt og layout på desktop version af portfolio-site section 2 */
+.img_container {
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.text {
+  font-size: 2rem;
+  font-family: "Arimo", sans-serif;
+  color: #192f37;
+  padding: 16px 20px;
+}
+
+.port_section_wrapper_2 {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.port_section_wrapper_2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.port_section_wrapper_2 img {
+  object-fit: cover;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+#portfolio_section_2 {
+  text-align: center;
+  padding: 1rem;
+}
+
+.img_container:hover .image {
+  opacity: 0.3;
+}
+
+.img_container:hover .middle {
+  opacity: 1;
+}
+
+/* hover af portfolio section 2 SLUT */
+
+/*----------------------- TEMA 02 - WEB-SIDEN ----------------------- */
+#indhold .banan_proto {
+  max-width: 40%;
+}
+
+/*----------------------- TEMA 03 - UX-SIDEN ----------------------- */
+#indhold {
+  display: grid;
+}
+
+#indhold .cont_1,
+.cont_2,
+.cont_3,
+.cont_4,
+.cont_5,
+.cont_6,
+.cont_7,
+.cont_8,
+.cont_9,
+.cont_10,
+.cont_11 {
+  display: grid;
+}
+
+#indhold img {
+  display: grid;
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+}
+
+#indhold p {
+  display: grid;
+}
+.font {
+  font-family: "PT sans", sans-serif;
+}
+
+#indhold .logo_1 {
+  max-width: 200px;
+}
+
+/*----------------------- TEMA 04 - ANIMATION-SIDEN -----------------------*/
+#indhold .java_img {
+  width: 50%;
+  height: auto;
+}
+/*----------------------- TEMA 05 - INDHOLD-SIDEN -----------------------*/
+
+video {
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+}
+
+.skjul {
+  color: #fcecdd;
+}
+
+/*-----------------------  MEDIAQUERIES ----------------------- */
+
+@media (max-width: 850px) {
+  #desktop_menu {
+    display: none;
+  }
+}
+@media (max-width: 350px) {
+  #portfolio_section_2 {
+    padding: 0;
+  }
+
+  .cv_img {
+    max-width: 200px;
+  }
+}
+@media (min-width: 850px) {
+  #burger_knap {
+    display: none;
+  }
+  #mobile_menu {
+    display: none;
+  }
+
+  .cv_img {
+    align-items: baseline;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: transparent;
+    max-width: 700px;
+  }
+
+  .cv_container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 1fr;
+  }
+  .text_container {
+    display: grid;
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .portrait_container {
+    display: grid;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  h2 {
+    margin-top: 15rem;
+  }
+
+  p {
+    line-height: 2.3rem;
+    max-width: 60ch;
+  }
+
+  #indhold {
+    display: grid;
+    grid-template-columns: 2fr;
+    grid-template-rows: 1fr;
+    gap: 1rem;
+  }
+
+  .cont_1 p,
+  .cont_2 p,
+  .cont_3 p,
+  .cont_4 p,
+  .cont_5 p,
+  .cont_6 p,
+  .cont_7 p,
+  .cont_8 p,
+  .cont_9 p,
+  .cont_10 p,
+  .cont_11 p {
+    display: grid;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .cont_1 img,
+  .cont_2 img,
+  .cont_3 img,
+  .cont_4 img,
+  .cont_5 img,
+  .cont_6 img,
+  .cont_7 img,
+  .cont_8 img,
+  .cont_9 img,
+  .cont_10 img,
+  .cont_11 img,
+  video {
+    display: grid;
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
